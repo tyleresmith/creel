@@ -1,0 +1,14 @@
+## Features
+- Allow user to create fishing trips
+- Fishing trips include: 
+    - a date
+    - list of fish caught
+    - location
+- Fish information include
+    - Common name
+    - species?
+    - Tackle used (optional)
+    - specific location (optional, ie at inlet, near sucken log)
+    - size of fish
+- Users have many trips
+- trips have many fish (hopefully)
