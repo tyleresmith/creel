@@ -29,6 +29,7 @@ gem "active_model_serializers"
 gem 'therubyracer'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'pry'
