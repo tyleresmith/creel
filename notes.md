@@ -3,7 +3,9 @@
 - Fishing trips include: 
     - a date
     - list of fish caught
-    - location
+    - location (general string, city, state)
+    - water type (salt, fresh, brackish etc)
+    - body of water (lake, creek etc)
 - Fish information include
     - Common name
     - species?
