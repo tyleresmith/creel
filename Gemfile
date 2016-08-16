@@ -28,7 +28,7 @@ gem "active_model_serializers"
 # gem 'bcrypt', '~> 3.1.7'
 gem 'therubyracer'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
+gem 'omniauth-github'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
