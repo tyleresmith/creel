@@ -11,16 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816020455) do
+ActiveRecord::Schema.define(version: 20160817224334) do
+
+  create_table "catches", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.integer  "fish_id"
+    t.integer  "length"
+    t.integer  "weight"
+    t.string   "tackle"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fish", force: :cascade do |t|
     t.string   "common_name"
     t.string   "species_name"
-    t.integer  "length"
-    t.integer  "weight"
-    t.string   "location"
-    t.string   "tackle"
-    t.integer  "trip_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
