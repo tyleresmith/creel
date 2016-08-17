@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
      :omniauthable, :omniauth_providers => [:github, :facebook]
   has_many :trips
   has_many :catches, through: :trips
-  has_manY :fishes, through: :catches
+  has_many :fishes, through: :catches
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/empty_avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  
   
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
