@@ -2,15 +2,18 @@
 - Allow user to create fishing trips
 - Fishing trips include: 
     - a date
-    - list of fish caught
+    - list of catches
     - location (general string, city, state)
     - water type (salt, fresh, brackish etc)
     - body of water (lake, creek etc)
+- Catches
+    - join table for fish and trips (trip_id, fish_id)  
+    - tackle used
+    - specific location (optional, ie at inlet, near sucken log)
+    - size of fish
+    - Tackle used (optional)
 - Fish information include
     - Common name
     - species?
-    - Tackle used (optional)
-    - specific location (optional, ie at inlet, near sucken log)
-    - size of fish
 - Users have many trips
 - trips have many fish (hopefully)
