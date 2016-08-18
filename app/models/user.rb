@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-     :omniauthable, :omniauth_providers => [:github, :facebook]
+     :omniauthable, :omniauth_providers => [:facebook]
   has_many :trips
   has_many :catches, through: :trips
   has_many :fishes, through: :catches
