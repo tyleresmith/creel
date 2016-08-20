@@ -14,6 +14,3 @@ receta.config([ '$routeProvider',
 ])
 
 controllers = angular.module('controllers',[])
-controllers.controller("FishController", [ '$scope',
-  ($scope)->
-])
