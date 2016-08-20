@@ -1,10 +1,11 @@
-receta = angular.module('receta',[
+creel = angular.module('creel',[
   'templates',
   'ngRoute',
-  'controllers',
+  'ngResource',
+  'controllers'
 ])
 
-receta.config([ '$routeProvider',
+creel.config([ '$routeProvider',
   ($routeProvider)->
     $routeProvider
       .when('/',
