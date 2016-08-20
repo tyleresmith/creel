@@ -44,7 +44,7 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
    server: 'dist', 
    port: process.env.PORT,
-   ui: { port: 8081 }
+   ui: { port: 9000 }
   });
 }
 
