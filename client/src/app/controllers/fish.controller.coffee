@@ -1,2 +1,3 @@
 angular.module "creel"
-  .controller "FishController", ($scope) ->
+  .controller "FishController", ($scope, Fish) ->
+    Fish.query().then (fish) -> $scope.fish = fish
