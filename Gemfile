@@ -31,6 +31,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem "paperclip", "~> 5.0.0"
+gem 'bower-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'pry'
