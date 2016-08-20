@@ -1,30 +1,13 @@
 
-fishes = [
-  {
-    id: 1
-    name: 'Baked Potato w/ Cheese'
-  },
-  {
-    id: 2
-    name: 'Garlic Mashed Potatoes',
-  },
-  {
-    id: 3
-    name: 'Potatoes Au Gratin',
-  },
-  {
-    id: 4
-    name: 'Baked Brussel Sprouts',
-  },
-]
-controllers = angular.module('controllers')
-controllers.controller("FishController", [ '$scope', '$routeParams', '$location',
-  ($scope,$routeParams,$location)->
-    $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
 
+controllers = angular.module('controllers')
+controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource'
+  ($scope,$routeParams,$location,$resource)->
+    $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
+    Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' })
+    
     if $routeParams.keywords
-      keywords = $routeParams.keywords.toLowerCase()
-      $scope.fishes = fishes.filter (fish)-> fish.name.toLowerCase().indexOf(keywords) != -1
+        Fish.query(keywords: $routeParams.keywords, (results)-> $scope.fishes = results)
     else
-      $scope.fishes = []
+        $scope.fishes = []
 ])
