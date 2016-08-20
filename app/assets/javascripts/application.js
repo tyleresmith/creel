@@ -16,5 +16,4 @@
 //= require angular-route/angular-route
 //= require angular-rails-templates
 //= require_tree .
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
