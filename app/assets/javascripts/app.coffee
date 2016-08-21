@@ -13,9 +13,9 @@ creel.config([ '$routeProvider',
       .when('/',
         templateUrl: "index.html"
         controller: 'FishController'
-      ).when('/fish/fishId',
+      ).when('/fish/:fishId',
         templateUrl: "show.html",
-        controller: 'RecipeCOntroller'
+        controller: 'FishController'
       )
 ])
 
