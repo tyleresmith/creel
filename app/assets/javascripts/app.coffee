@@ -2,7 +2,9 @@ creel = angular.module('creel',[
   'templates',
   'ngRoute',
   'ngResource',
-  'controllers'
+  'controllers',
+  'angular-flash.service',
+  'angular-flash.flash-alert-directive'
 ])
 
 creel.config([ '$routeProvider',
