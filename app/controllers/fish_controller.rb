@@ -13,6 +13,9 @@ class FishController < ApplicationController
     end
     
     def show
-        
+        @fish = Fish.find(params[:id])
+        respond_to do |format|
+          format.json { render json: @fish}
+        end
     end
 end
