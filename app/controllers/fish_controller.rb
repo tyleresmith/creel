@@ -23,14 +23,20 @@ class FishController < ApplicationController
     end
     
     def create
-        @fish = Fish.new(params.require(:fish).permit(:common_name,:species_name))
+        @fish = Fish.new(fish_params)
         @fish.save
         render 'show', status: 201
     end
     
     def update 
         fish = Recipe.find(params[:id])
-        fish.update_attributes(params.require(:fish).permit(:common_name,:species_name))
+        fish.update_attributes(fish_params)
         head :no_content
+    end
+    
+    private
+    
+    def fish_params
+        params.require(:fish).permit(:common_name,:species_name)
     end
 end
