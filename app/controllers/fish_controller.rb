@@ -1,5 +1,7 @@
 
 class FishController < ApplicationController
+    #allows multiple POSTs to app
+    skip_before_filter :verify_authenticity_token 
     def index
         @fish = if params[:keywords]
                      Fish.where('common_name LIKE ? OR species_name LIKE ?',"%#{params[:keywords]}%","%#{params[:keywords]}%")
