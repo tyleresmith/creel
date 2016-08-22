@@ -5,14 +5,17 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
   ($scope,$routeParams,$location,$resource,flash)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
     Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' })
-
-    Fish.get({fishId: $routeParams.fishId},
-      ( (fish)-> $scope.fish = fish),
-      ( (httpResponse)-> 
-        $scope.fish = null
-        flash.error = "There is no fish with ID #{$routeParams.fishId}"
+    
+    if $routeParams.fishId
+      Fish.get({fishId: $routeParams.fishId},
+        ( (fish)-> $scope.fish = fish),
+        ( (httpResponse)-> 
+          $scope.fish = null
+          flash.error = "There is no fish with ID #{$routeParams.fishId}"
+        )
       )
-    )
+    else
+      $scope.fish = {}
     
     if $routeParams.keywords
         Fish.query(keywords: $routeParams.keywords, (results)-> $scope.fishes = results)
