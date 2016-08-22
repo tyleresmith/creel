@@ -25,4 +25,10 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     
     $scope.back = -> $location.path("/")
+    $scope.edit = -> $location.path("/fish/#{$scope.fish.id}/edit")
+    $scope.cancel = ->
+      if $scope.recipe.id
+        $location.path("/fish/#{$scope.fish.id}")
+      else
+        $location.path("/")
 ])
