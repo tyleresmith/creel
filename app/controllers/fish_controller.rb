@@ -2,6 +2,7 @@
 class FishController < ApplicationController
     #allows multiple POSTs to app
     skip_before_filter :verify_authenticity_token 
+    # prepend_view_path 'app/assets/javascipt/templates'
     before_action :set_fish!, only: [:show, :update, :destroy]
     def index
         @fish = if params[:keywords]
