@@ -31,4 +31,16 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
         $location.path("/fish/#{$scope.fish.id}")
       else
         $location.path("/")
+        
+    $scope.save = ->
+      onError = (_httpResponse)-> flash.error = "Something went wrong"
+      if $scope.fish.id
+        $scope.recipe.$save(
+          ( ()-> $location.path("/fish/#{$scope.fish.id}") ),
+          onError)
+      else
+        Fish.create($scope.fish,
+          ( (newFish)-> $location.path("/fish/#{newFish.id}") ),
+          onError
+        )
 ])
