@@ -21,4 +21,10 @@ class FishController < ApplicationController
           format.json { render json: @fish}
         end
     end
+    
+    def create
+        @fish = Fish.new(params.require(:fish).permit(:common_name,:species_name))
+        @fish.save
+        render 'show', status :201
+    end
 end
