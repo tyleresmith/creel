@@ -30,9 +30,9 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     $scope.newFish = -> $location.path("/fish/new")
     $scope.back = -> $location.path("/")
-    $scope.edit = -> $location.path("/fish/#{$scope.fish.id}/edit")
+    $scope.edit = (fishId) -> $location.path("/fish/#{fishId}/edit")
     $scope.cancel = ->
-      if $scope.recipe.id
+      if $scope.fish.id
         $location.path("/fish/#{$scope.fish.id}")
       else
         $location.path("/")
@@ -40,7 +40,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     $scope.save = ->
       onError = (_httpResponse)-> flash.error = "Something went wrong"
       if $scope.fish.id
-        $scope.recipe.$save(
+        $scope.fish.$save(
           ( ()-> $location.path("/fish/#{$scope.fish.id}") ),
           onError)
       else
