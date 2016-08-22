@@ -1,11 +1,11 @@
 
 
 controllers = angular.module('controllers')
-controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource'
+controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
     Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' })
-    
+
     Fish.get({fishId: $routeParams.fishId},
       ( (fish)-> $scope.fish = fish),
       ( (httpResponse)-> 
@@ -19,7 +19,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     else
         $scope.fishes = []
         
-    $scope.view = (fishId)-> $location.path("/fish/#{fishId}.json")
+    $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     
     $scope.back = -> $location.path("/")
 ])
