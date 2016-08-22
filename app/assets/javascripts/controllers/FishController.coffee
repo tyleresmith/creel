@@ -4,7 +4,12 @@ controllers = angular.module('controllers')
 controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
-    Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' })
+    Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' },
+      {
+        'save': {method: 'PUT'},
+        'create': {method: 'POST'}
+      }
+    )
     
     if $routeParams.fishId
       Fish.get({fishId: $routeParams.fishId},
@@ -23,7 +28,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
         $scope.fishes = []
         
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
-    
+    $scope.newFish = -> $location.path("/fish/new")
     $scope.back = -> $location.path("/")
     $scope.edit = -> $location.path("/fish/#{$scope.fish.id}/edit")
     $scope.cancel = ->
