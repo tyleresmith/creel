@@ -19,8 +19,14 @@ creel.config([ '$routeProvider', 'flashProvider',
       .when('/',
         templateUrl: "index.html"
         controller: 'FishController'
+      ).when('/fish/new',
+        templateUrl: 'form.html'
+        controller: 'FishController'
       ).when('/fish/:fishId',
-        templateUrl: "show.html",
+        templateUrl: "show.html"
+        controller: 'FishController'
+      ).when('/fish/:fishId/edit',
+        templateUrl: 'form.html'
         controller: 'FishController'
       )
 ])
