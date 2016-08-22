@@ -2,6 +2,7 @@
   <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
     {{flash.message}}
   </article>
+  <flash-alert></flash-alert>
 </aside>
 <form class="form-horizontal" role="form" class="edit-user">
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
@@ -11,7 +12,7 @@
       Common Name
     </label>
     <div class="col-md-5">
-      <input type="text" name="common_name" class="form-control" placeholder="e.g. Neon Tetra" ng-model="fish.common_name">
+      <input type="text" name="common_name" class="form-control" placeholder="e.g. Neon Tetra" ng-model="fish.common_name" autofocus>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
