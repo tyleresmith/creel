@@ -33,6 +33,11 @@ class FishController < ApplicationController
         head :no_content
     end
     
+    def destroy
+        @fish.destroy
+        head :no_content
+    end
+    
     private
     
     def set_fish!
