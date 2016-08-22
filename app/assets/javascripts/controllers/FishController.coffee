@@ -43,4 +43,9 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
           ( (newFish)-> $location.path("/fish/#{newFish.id}") ),
           onError
         )
+        
+    $scope.delete = ->
+      $scope.fish.$delete()
+      $scope.back()
+
 ])
