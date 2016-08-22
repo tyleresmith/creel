@@ -2,6 +2,7 @@
 class FishController < ApplicationController
     #allows multiple POSTs to app
     skip_before_filter :verify_authenticity_token 
+    before_action :set_fish!, only: [:show, :update, :destroy]
     def index
         @fish = if params[:keywords]
                      Fish.where('common_name LIKE ? OR species_name LIKE ?',"%#{params[:keywords]}%","%#{params[:keywords]}%")
@@ -16,7 +17,6 @@ class FishController < ApplicationController
     end
     
     def show
-        @fish = Fish.find(params[:id])
         respond_to do |format|
           format.json { render json: @fish}
         end
@@ -29,12 +29,15 @@ class FishController < ApplicationController
     end
     
     def update 
-        fish = Recipe.find(params[:id])
-        fish.update_attributes(fish_params)
+        @fish.update_attributes(fish_params)
         head :no_content
     end
     
     private
+    
+    def set_fish!
+        @fish = Fish.find(params[:id])
+    end
     
     def fish_params
         params.require(:fish).permit(:common_name,:species_name)
