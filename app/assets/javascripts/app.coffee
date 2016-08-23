@@ -49,7 +49,7 @@ creel.config([ '$routeProvider', 'flashProvider',
       ).when('catch/:catch:id/edit',
         templateUrl: 'catch/form'
         controller: 'CatchController'
-      )
+      ).otherwise({ redirectTo: '/' })
 ])
 
 controllers = angular.module('controllers',[])
