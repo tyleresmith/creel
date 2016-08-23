@@ -3,7 +3,7 @@
 controllers = angular.module('controllers')
 controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
-    $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
+    $scope.search = (keywords)->  $location.path("/fish").search('keywords',keywords)
     Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' },
       {
         'save': {method: 'PUT'},
@@ -29,13 +29,13 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
         
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     $scope.newFish = -> $location.path("/fish/new")
-    $scope.back = -> $location.path("/")
+    $scope.back = -> $location.path("/fish")
     $scope.edit = (fishId) -> $location.path("/fish/#{fishId}/edit")
     $scope.cancel = ->
       if $scope.fish.id
         $location.path("/fish/#{$scope.fish.id}")
       else
-        $location.path("/")
+        $location.path("/fish")
         
     $scope.save = ->
       onError = (_httpResponse)-> flash.error = "Something went wrong"
