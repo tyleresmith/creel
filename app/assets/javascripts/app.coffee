@@ -16,8 +16,11 @@ creel.config([ '$routeProvider', 'flashProvider',
     flashProvider.successClassnames.push("alert-success")
     
     $routeProvider
-      .when('/fish',
-        templateUrl: "index.html"
+      .when('/',
+        templateUrl:'user/show.html'
+        controller: 'UserController'
+      ).when('/fish',
+        templateUrl: "fish/index.html"
         controller: 'FishController'
       ).when('/fish/new',
         templateUrl: 'fish/form.html'
