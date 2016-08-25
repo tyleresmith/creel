@@ -1,0 +1,46 @@
+<aside class="flash row">
+  <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+    {{flash.message}}
+  </article>
+  <flash-alert></flash-alert>
+</aside>
+<form class="form-horizontal" role="form" class="edit-user">
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="location" class="col-md-2 control-label col-md-offset-2"> Location </label>
+    <div class="col-md-5">
+      <input type="text" name="location" class="form-control" placeholder="e.g. Family Pond" ng-model="trip.location" autofocus>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="city" class="col-md-2 control-label col-md-offset-2"> City </label>
+    <div class="col-md-5">
+      <input type="text" name="city" class="form-control" ng-model="trip.city" autofocus>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="state" class="col-md-2 control-label col-md-offset-2"> State </label>
+    <div class="col-md-5">
+      <input type="text" name="state" class="form-control"  ng-model="trip.state" autofocus>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="water_type" class="col-md-2 control-label col-md-offset-2"> Water Type </label>
+    <div class="col-md-5">
+      <input type="text" name="water_type" class="form-control"  ng-model="trip.water_type" autofocus>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="body_type" class="col-md-2 control-label col-md-offset-2"> Body Type </label>
+    <div class="col-md-5">
+      <input type="text" name="body_type" class="form-control"  ng-model="trip.body_type" autofocus>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-3">
+      <button class="btn btn-default" ng-click="cancel()"> Cancel</button>
+    </div>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary" ng-click="save()"> Save </button>
+    </div>
+  </div>
+</section>
