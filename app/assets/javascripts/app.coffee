@@ -31,23 +31,23 @@ creel.config([ '$routeProvider', 'flashProvider',
       ).when('/fish/:fishId/edit',
         templateUrl: 'fish/form.html'
         controller: 'FishController'
-      ).when('/trip',
-        templateUrl: 'trip/index',
+      ).when('/trips',
+        templateUrl: 'trip/index.html',
         controller: 'TripController'
-      ).when('/trip/new',
-        templateUrl: 'trip/new'
+      ).when('/trips/new',
+        templateUrl: 'trip/form.html'
         controller: 'TripController'
-      ).when('trip/:tripId',
-        templateUrl: 'trip/show',
+      ).when('trips/:tripId',
+        templateUrl: 'trip/show.html',
         controller: 'TripController'
-      ).when('trip/:tripId/edit',
-        templateUrl: 'trip/form',
+      ).when('trips/:tripId/edit',
+        templateUrl: 'trip/form.html',
         controller: 'TripController'
-      ).when('catch/new',
-        templateUrl: 'catch/form'
+      ).when('catches/new',
+        templateUrl: 'catch/form.html'
         controller: 'CatchController'
-      ).when('catch/:catch:id/edit',
-        templateUrl: 'catch/form'
+      ).when('catches/:catch:id/edit',
+        templateUrl: 'catch/form.html'
         controller: 'CatchController'
       ).otherwise({ redirectTo: '/' })
 ])
