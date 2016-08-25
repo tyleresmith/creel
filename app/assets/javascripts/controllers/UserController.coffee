@@ -4,7 +4,7 @@ controllers.controller("UserController", [ '$scope', '$routeParams', '$location'
     User = $resource('/users/:userId', {userId: '@id', format: 'json'})
     
     $scope.user = User.get()
-    
-    $scope.newTrip = -> $location.path("/trip/new")
+    $scope.viewTrips =-> $location.path("/trips")
+    $scope.newTrip = -> $location.path("/trips/new")
 
 ])
