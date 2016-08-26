@@ -1,0 +1,46 @@
+<aside class="flash row">
+  <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+    {{flash.message}}
+  </article>
+  <flash-alert></flash-alert>
+</aside>
+<form class="form-horizontal" role="form" class="edit-user">
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="fish" class="col-md-2 control-label col-md-offset-2"> Fish </label>
+    <div class="col-md-5">
+      <input type="text" name="fish" class="form-control" placeholder="make this a drop down" ng-model="catch.fish">
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="weight" class="col-md-2 control-label col-md-offset-2"> Weight </label>
+    <div class="col-md-5">
+      <input type="text" name="weight" class="form-control" placeholder="in lbs" ng-model="catch.weight">
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="length" class="col-md-2 control-label col-md-offset-2"> Length </label>
+    <div class="col-md-5">
+      <input type="length" name="state" class="form-control" placeholder="in inches" ng-model="catch.length">
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="tackle" class="col-md-2 control-label col-md-offset-2"> tackle (optional) </label>
+    <div class="col-md-5">
+      <input type="textarea" name="tackle" class="form-control" placeholder="e.g. caroline rig with baitcaster and 7 foot ugly stick" ng-model="catch.tackle">
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="body_type" class="col-md-2 control-label col-md-offset-2"> Body Type (optional)</label>
+    <div class="col-md-5">
+      <input type="text" name="body_type" class="form-control" placeholder="e.g. lake, marsh, strem" ng-model="catch.body_type" autofocus>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-3">
+      <button class="btn btn-default" ng-click="cancel()"> Cancel</button>
+    </div>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary" ng-click="save()"> Save </button>
+    </div>
+  </div>
+</section>
