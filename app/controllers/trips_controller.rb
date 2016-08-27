@@ -17,11 +17,10 @@ class TripsController < ApplicationController
     end
     
     def create
-        binding.pry
         @trip = Trip.new(trip_params)
         @trip.user = current_user
         @trip.save
-        render 'show', status: 201
+        head :no_content
     end
     
     def update 
