@@ -24,7 +24,8 @@ controllers.controller("TripController", [ '$scope', '$routeParams', '$location'
     $scope.viewTrip = (tripId) -> $location.path '/trips/' + tripId
     $scope.newTrip = -> $location.path("/trips/new")
     $scope.newCatch = (tripId) -> $location.path '/trips/' + tripId + '/catches/new'
-    # $scope.back = -> $location.path("/trips")
+    $scope.viewCatch = (catchId) -> $location.path '/trips/' + $routeParams.tripId + '/catches/' + catchId  
+    $scope.back = -> $location.path("/trips")
     # $scope.edit = (tripId) -> $location.path("/trips/#{tripId}/edit")
     $scope.cancel = ->
       if $scope.trip.id
