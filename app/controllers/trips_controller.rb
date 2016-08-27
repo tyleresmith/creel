@@ -4,7 +4,6 @@ class TripsController < ApplicationController
     
     def index
         @trips = current_user.trips
-        
         respond_to do |format|
           format.json { render json: @trips}
         end
