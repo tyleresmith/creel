@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
   resources :users, only: [:index, :show]
   resources :trips do
-    resources :catches, only: [:new, :edit, :show]    
+    resources :catches, only: [:new, :edit, :show, :update, :delete, :create]    
   end
 
   # resources :catch, only: [:create, :delete, :show]
