@@ -3,7 +3,7 @@
 controllers = angular.module('controllers')
 controllers.controller("CatchController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
-    Catch = $resource('/trips/'+$routeParams.tripID+'/catches/:catchId', { catchId: "@id", format: 'json' },
+    Catch = $resource('/trips/'+$routeParams.tripId+'/catches/:catchId', { catchId: "@id", format: 'json' },
       {
         'save': {method: 'PUT'},
         'create': {method: 'POST'}
@@ -23,18 +23,17 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
     else
       $scope.catchModel = {}
     
-    # $scope.save = ->
-    #   onError = (_httpResponse)-> flash.error = "Something went wrong"
-      
-    #   if $scope.catchModel.id
-    #     $scope.catchModel.$save(
-    #       ( ()-> $location.path("/trips/#{$routeParams.tripId}/catches/#{scope.catchModel.id}") ),
-    #       onError)
-    #   else
-    #     Catch.create($scope.catchModel,
-    #       ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}/catches/) ),
-    #       onError
-    #     )
+    $scope.save = ->
+      onError = (_httpResponse)-> flash.error = "Something went wrong"
+      if $scope.catchModel.id
+        $scope.catchModel.$save(
+          ( ()-> $location.path("/trips/#{$scope.catchModel.trip.id}/catches/#{$scope.catchModel.id}") ),
+          onError)
+      else
+        Catch.create($scope.catchModel,
+          ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}/catches/") ),
+          onError
+        )
         
     $scope.back = (tripId) -> $location.path '/trips/' + $routeParams.tripId 
     $scope.edit = (catchId) -> $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}/edit")
