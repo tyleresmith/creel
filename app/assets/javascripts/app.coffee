@@ -37,16 +37,16 @@ creel.config([ '$routeProvider', 'flashProvider',
       ).when('/trips/new',
         templateUrl: 'trip/form.html'
         controller: 'TripController'
-      ).when('trips/:tripId',
+      ).when('/trips/:tripId',
         templateUrl: 'trip/show.html',
         controller: 'TripController'
-      ).when('trips/:tripId/edit',
+      ).when('/trips/:tripId/edit',
         templateUrl: 'trip/form.html',
         controller: 'TripController'
-      ).when('catches/new',
+      ).when('/trips/:tripId/catches/new',
         templateUrl: 'catch/form.html'
         controller: 'CatchController'
-      ).when('catches/:catch:id/edit',
+      ).when('/trips/tripId/catches/:catch:id/edit',
         templateUrl: 'catch/form.html'
         controller: 'CatchController'
       ).otherwise({ redirectTo: '/' })
