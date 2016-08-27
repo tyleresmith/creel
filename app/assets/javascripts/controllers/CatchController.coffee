@@ -31,7 +31,7 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
           onError)
       else
         Catch.create($scope.catchModel,
-          ( (newCatch)-> $location.path("/trips/#{$scope.catchModel.trip.id}/catches/#{$scope.catchModel.id}") ),
+          ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}") ),
           onError
         )
         
