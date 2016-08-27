@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   # resources :catch, only: [:create, :delete, :show]
   resources :trips
+  resources :catches
   resources :fish, only: [:index, :show, :update, :destroy, :create]
 end
