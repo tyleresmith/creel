@@ -17,6 +17,7 @@ class CatchesController < ApplicationController
     end
     
     def create
+        binding.pry
         @catch = Catch.new(catch_params)
         @catch.trip = Trip.find(params[:trip_id])
         @catch.save
