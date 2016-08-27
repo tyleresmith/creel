@@ -4,35 +4,35 @@
   </article>
   <flash-alert></flash-alert>
 </aside>
-<form class="form-horizontal" role="form" class="edit-user">
+<form class="form-horizontal" role="form" class="edit-catch">
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-    <label for="fish" class="col-md-2 control-label col-md-offset-2"> Fish </label>
+    <label for="fishId" class="col-md-2 control-label col-md-offset-2"> Fish </label>
     <div class="col-md-5">
-      <input type="text" name="fish" class="form-control" placeholder="make this a drop down" ng-model="catch.fish">
+      <input type="text" name="fishId" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish.id">
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="weight" class="col-md-2 control-label col-md-offset-2"> Weight </label>
     <div class="col-md-5">
-      <input type="text" name="weight" class="form-control" placeholder="in grams" ng-model="catch.weight">
+      <input type="text" name="weight" class="form-control" placeholder="in grams" ng-model="catchModel.weight">
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="length" class="col-md-2 control-label col-md-offset-2"> Length </label>
     <div class="col-md-5">
-      <input type="length" name="state" class="form-control" placeholder="in centimeters" ng-model="catch.length">
+      <input type="length" name="state" class="form-control" placeholder="in centimeters" ng-model="catchModel.length">
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="tackle" class="col-md-2 control-label col-md-offset-2"> tackle (optional) </label>
     <div class="col-md-5">
-      <input type="textarea" name="tackle" class="form-control" placeholder="e.g. caroline rig with baitcaster and 7 foot ugly stick" ng-model="catch.tackle">
+      <input type="textarea" name="tackle" class="form-control" placeholder="e.g. carolina rig with baitcaster and 7 foot ugly stick" ng-model="catchModel.tackle">
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="location" class="col-md-2 control-label col-md-offset-2"> Location (optional)</label>
     <div class="col-md-5">
-      <input type="text" name="location" class="form-control" placeholder="e.g. under old willow tree" ng-model="catch.location">
+      <input type="text" name="location" class="form-control" placeholder="e.g. under old willow tree" ng-model="catchModel.location">
     </div>
   </div>
   <div class="form-group">
