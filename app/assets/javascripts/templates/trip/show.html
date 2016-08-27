@@ -9,7 +9,8 @@
     <p class="panel-body">
       Date: {{trip.date}} 
     </p>
-    <p class="panel-body"> {{trip.city}}, {{trip.state</p>
+    <p class="panel-body"> {{trip.city}}, {{trip.state}}</p>
+    <p class="panel-body"> {{trip.water_type}} Water {{trip.body_type}}</p>
   </article>
   <section>
     <div class='col-md-3'>
@@ -21,5 +22,19 @@
       <button ng-click="edit(trip.id)" class="btn btn-info"> Edit </button>
       <button ng-click="delete()" class="btn btn-danger"> Delete </button>
     </div>  
+  </section>
+  <section class="row" ng-if="trip.catches">
+    <h1 class="text-center h2">Catches</h1>
+    <ul class="list-unstyled">
+      <li ng-repeat="catch in trip.catches">
+        <section class="well col-md-6 col-md-offset-3">
+          <h1 class="h3 col-md-6 text-right" style="margin-top: 0"><a href ng-click="viewCatch(catch.fish.id)">{{catch.fish.common_name}}</a></h1>
+          <p class="h3 col-md-6 text-right" style="margin-top: 0">Length: {{catch.length}} cm Weight: {{catch.weight}} g</p>
+          <div class="col-md-6">
+            <button ng-click="editCatch(catch.fish.id)" class="btn btn-info">Edit</button>
+          </div>
+        </section>
+      </li>
+    </ul>
   </section>
 </section>
