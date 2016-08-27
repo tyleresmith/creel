@@ -3,8 +3,7 @@
 controllers = angular.module('controllers')
 controllers.controller("CatchController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
-    
-    Catch = $resource('/catches/:catchId', { catchId: "@id", format: 'json' },
+    Catch = $resource('/trips/'+$routeParams.tripID+'/catches/:catchId', { catchId: "@id", format: 'json' },
       {
         'save': {method: 'PUT'},
         'create': {method: 'POST'}
@@ -24,10 +23,21 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
     else
       $scope.catchModel = {}
     
-
+    # $scope.save = ->
+    #   onError = (_httpResponse)-> flash.error = "Something went wrong"
+      
+    #   if $scope.catchModel.id
+    #     $scope.catchModel.$save(
+    #       ( ()-> $location.path("/trips/#{$routeParams.tripId}/catches/#{scope.catchModel.id}") ),
+    #       onError)
+    #   else
+    #     Catch.create($scope.catchModel,
+    #       ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}/catches/) ),
+    #       onError
+    #     )
         
-    $scope.back = (catchId) -> $location.path '/trips/' + $routeParams.tripId 
-    # # $scope.edit = (tripId) -> $location.path("/trips/#{tripId}/edit")
+    $scope.back = (tripId) -> $location.path '/trips/' + $routeParams.tripId 
+    $scope.edit = (catchId) -> $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}/edit")
     $scope.cancel = ->
       if $scope.trip.id
         $location.path("/trips/#{$scope.trip.id}")
