@@ -47,7 +47,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
           onError)
       else
         Fish.create($scope.fish,
-          ( (newFish)-> $location.path("/fish/#{newFish.id}") ),
+          ( (newFish)-> $location.path("/fish") ),
           onError
         )
         
