@@ -17,11 +17,10 @@ class CatchesController < ApplicationController
     end
     
     def create
-        binding.pry
         @catch = Catch.new(catch_params)
         @catch.trip = Trip.find(params[:trip_id])
         @catch.save
-        render 'show', status: 201
+        head :no_content
     end
     
     def update 
