@@ -3,26 +3,30 @@
 controllers = angular.module('controllers')
 controllers.controller("CatchController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
   ($scope,$routeParams,$location,$resource,flash)->
-      debugger;
-    # Catch = $resource('/catches/:catchId', { catchId: "@id", format: 'json' },
-    #   {
-    #     'save': {method: 'PUT'},
-    #     'create': {method: 'POST'}
-    #   }
-    # )
-    # $scope.catch = Catch.query()
-    # if $routeParams.tripId
-    #   Trip.get({tripId: $routeParams.tripId},
-    #     ( (trip)-> $scope.trip = trip),
-    #     ( (httpResponse)-> 
-    #       $scope.trip = null
-    #       flash.error = "There is no trip with ID #{$routeParams.tripId}"
-    #     )
-    #   )
-    # else
-    #   $scope.trip = {}
+    
+    Catch = $resource('/catches/:catchId', { catchId: "@id", format: 'json' },
+      {
+        'save': {method: 'PUT'},
+        'create': {method: 'POST'}
+      }
+    )
+
+
+    # catchModel named to circumvent reexisting JS method 'catch'
+    if $routeParams.catchId
+      Catch.get({catchId: $routeParams.catchId},
+        ( (catchModel)-> $scope.catchModel = catchModel),
+        ( (httpResponse)-> 
+          $scope.catchModel = null
+          flash.error = "There is no catch with ID #{$routeParams.catchId}"
+        )
+      )
+    else
+      $scope.catchModel = {}
+    
+
         
-    # $scope.back = (tripId) -> $location.path '/trips/' + tripId
+    $scope.back = (catchId) -> $location.path '/trips/' + $routeParams.tripId 
     # # $scope.edit = (tripId) -> $location.path("/trips/#{tripId}/edit")
     # $scope.cancel = ->
     #   if $scope.trip.id
