@@ -38,10 +38,10 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
     $scope.back = (tripId) -> $location.path '/trips/' + $routeParams.tripId 
     $scope.edit = (catchId) -> $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}/edit")
     $scope.cancel = ->
-      if $scope.trip.id
-        $location.path("/trips/#{$scope.trip.id}")
+      if $routeParams.catchId
+        $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}")
       else
-        $location.path("/trips")
+        $location.path("/trips/#{$routeParams.tripId}")
 
 
 ])
