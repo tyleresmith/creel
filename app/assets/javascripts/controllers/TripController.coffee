@@ -33,21 +33,21 @@ controllers.controller("TripController", [ '$scope', '$routeParams', '$location'
       else
         $location.path("/trips")
         
-    # $scope.save = ->
-    #   onError = (_httpResponse)-> flash.error = "Something went wrong"
+    $scope.save = ->
+      onError = (_httpResponse)-> flash.error = "Something went wrong"
       
-    #   if $scope.trip.id
-    #     $scope.trip.$save(
-    #       ( ()-> $location.path("/trips/#{$scope.trip.id}") ),
-    #       onError)
-    #   else
-    #     Trip.create($scope.trip,
-    #       ( (newTrip)-> $location.path("/trips/#{newTrip.id}") ),
-    #       onError
-    #     )
+      if $scope.trip.id
+        $scope.trip.$save(
+          ( ()-> $location.path("/trips/#{$scope.trip.id}") ),
+          onError)
+      else
+        Trip.create($scope.trip,
+          ( (newTrip)-> $location.path("/trips/#{newTrip.id}") ),
+          onError
+        )
         
-    # $scope.delete = ->
-    #   $scope.trip.$delete()
-    #   $scope.back()
+    $scope.delete = ->
+      $scope.trip.$delete()
+      $scope.back()
 
 ])
