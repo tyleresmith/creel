@@ -24,7 +24,7 @@
     </div>  
   </section>
   <section class="row" ng-if="trip.catches">
-    <h1 class="text-center h2">Catches</h1>
+    <h1 class="text-center h2">Catches ({{trip.catches.length}})</h1>
     <button ng-click="newCatch(trip.id)" class="btn btn-danger"> New Catch </button>
     <ul class="list-unstyled">
       <li ng-repeat="catch in trip.catches">
