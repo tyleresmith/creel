@@ -1,0 +1,25 @@
+<aside class="flash row">
+    <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offet-3 col-sm-12">
+       {{flash.message}} 
+    </article>
+</aside>
+<section class="col-md-6 col-md-offset-3">
+  <article class="panel panel-info">
+    <header class="panel-heading"><h1>{{trip.location}}</h1></header>
+    <p class="panel-body">
+      Date: {{trip.date}} 
+    </p>
+    <p class="panel-body"> {{trip.city}}, {{trip.state</p>
+  </article>
+  <section>
+    <div class='col-md-3'>
+      <button ng-click="back()" class="btn btn-default">
+        &larr; Back
+      </button>
+    </div>
+    <div class='col-md-9 text-right'>
+      <button ng-click="edit(trip.id)" class="btn btn-info"> Edit </button>
+      <button ng-click="delete()" class="btn btn-danger"> Delete </button>
+    </div>  
+  </section>
+</section>
