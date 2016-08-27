@@ -42,6 +42,9 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
         $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}")
       else
         $location.path("/trips/#{$routeParams.tripId}")
+    $scope.delete = ->
+      $scope.catchModel.$delete()
+      $scope.back()
 
 
 ])
