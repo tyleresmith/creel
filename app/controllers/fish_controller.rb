@@ -26,7 +26,7 @@ class FishController < ApplicationController
     def create
         @fish = Fish.new(fish_params)
         @fish.save
-        render 'show', status: 201
+        head :no_content
     end
     
     def update 
