@@ -4,23 +4,35 @@
   </article>
   <flash-alert></flash-alert>
 </aside>
-<form class="form-horizontal" role="form" class="edit-catch">
+<form name="form" class="form-horizontal" role="form" class="edit-catch">
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="fishId" class="col-md-2 control-label col-md-offset-2"> Fish </label>
     <div class="col-md-5">
-      <input type="text" name="fishId" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id">
+      <input type="text" name="fishId" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id" required="required" type="number">
+    </div>
+    <div ng-messages="form.fish_id.$error" ng-if="form.fish_id.$touched">
+        <div ng-message="number">Must be a number.</div>
+        <div ng-message="type">Fish ID number is required.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="weight" class="col-md-2 control-label col-md-offset-2"> Weight </label>
     <div class="col-md-5">
-      <input type="text" name="weight" class="form-control" placeholder="in grams" ng-model="catchModel.weight">
+      <input type="text" name="weight" class="form-control" placeholder="in grams" ng-model="catchModel.weight" required="required" type="number">
+    </div>
+    <div ng-messages="form.weight.$error" ng-if="form.weight.$touched">
+        <div ng-message="number">Must be a number.</div>
+        <div ng-message="type"> Weight is required.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="length" class="col-md-2 control-label col-md-offset-2"> Length </label>
     <div class="col-md-5">
-      <input type="length" name="state" class="form-control" placeholder="in centimeters" ng-model="catchModel.length">
+      <input type="length" name="state" class="form-control" placeholder="in centimeters" ng-model="catchModel.length" required="required" type="number">
+    </div>
+    <div ng-messages="form.length.$error" ng-if="form.length.$touched">
+        <div ng-message="number">Must be a number.</div>
+        <div ng-message="type"> Length is required.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
