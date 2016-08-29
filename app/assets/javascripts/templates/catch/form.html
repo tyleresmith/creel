@@ -6,9 +6,9 @@
 </aside>
 <form name="form" class="form-horizontal" role="form" class="edit-catch">
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
-    <label for="fishId" class="col-md-2 control-label col-md-offset-2"> Fish </label>
+    <label for="fish_id" class="col-md-2 control-label col-md-offset-2"> Fish </label>
     <div class="col-md-5">
-      <input type="text" name="fishId" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id" required="required" type="number">
+      <input type="text" name="fish_id" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id" required="required" type="number">
     </div>
     <div ng-messages="form.fish_id.$error" ng-if="form.fish_id.$touched">
         <div ng-message="number">Must be a number.</div>
