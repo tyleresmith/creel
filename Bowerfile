@@ -4,5 +4,7 @@ asset 'angular-route'
 asset 'angular-resource'
 asset 'angular-mocks'
 asset 'angular-messages'
+asset 'md-datepicker'
+asset 'angularjs-datepicker'
 asset 'bootstrap-sass-official'
 # vim: ft=ruby
