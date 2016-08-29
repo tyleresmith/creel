@@ -17,6 +17,7 @@
 //= require angular-flash/dist/angular-flash
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
+//= require angular-messages
 //= require turbolinks
 //= require_tree .
 
