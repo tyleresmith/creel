@@ -11,9 +11,12 @@
       <input type="text" name="location" class="form-control" placeholder="e.g. Family Pond" ng-model="trip.location" autofocus>
     </div>
   </div>
-    <datepicker>
-      <input ng-model="trip.date" type="text"/>
-    </datepicker>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label for="date" class="col-md-2 control-label col-md-offset-2"> Date </label>
+    <div class="col-md-5">
+      <input type="date" name="date" class="form-control" ng-model="trip.date">
+    </div>
+  </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="city" class="col-md-2 control-label col-md-offset-2"> City </label>
     <div class="col-md-5">
