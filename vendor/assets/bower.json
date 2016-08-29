@@ -7,6 +7,7 @@
     "angular-resource": "latest",
     "angular-mocks": "latest",
     "angular-messages": "latest",
+    "md-datepicker": "latest",
     "bootstrap-sass-official": "latest"
   }
 }
