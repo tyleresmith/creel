@@ -20,10 +20,12 @@ controllers.controller("TripController", [ '$scope', '$routeParams', '$location'
       )
     else
       $scope.trip = {}
-        
+    
+    $scope.home = -> $location.path("/")    
     $scope.viewTrip = (tripId) -> $location.path '/trips/' + tripId
     $scope.newTrip = -> $location.path("/trips/new")
     $scope.newCatch = (tripId) -> $location.path '/trips/' + tripId + '/catches/new'
+    $scope.editCatch = (catchId) -> $location.path '/trips/' + $routeParams.tripId + '/catches/' + catchId + '/edit'
     $scope.viewCatch = (catchId) -> $location.path '/trips/' + $routeParams.tripId + '/catches/' + catchId  
     $scope.back = -> $location.path("/trips")
     $scope.edit = (tripId) -> $location.path("/trips/#{tripId}/edit")
