@@ -3,6 +3,7 @@ creel = angular.module('creel',[
   'ngRoute',
   'ngResource',
   'controllers',
+  'ngMessages',
   'angular-flash.service',
   'angular-flash.flash-alert-directive'
 ])
