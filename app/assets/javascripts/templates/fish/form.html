@@ -4,7 +4,7 @@
   </article>
   <flash-alert></flash-alert>
 </aside>
-<form class="form-horizontal" role="form" class="edit-fish">
+<form name="form" class="form-horizontal" role="form" class="edit-fish">
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label 
       for="common_name" 
@@ -12,7 +12,10 @@
       Common Name
     </label>
     <div class="col-md-5">
-      <input type="text" name="common_name" class="form-control" placeholder="e.g. Neon Tetra" ng-model="fish.common_name" autofocus>
+      <input type="text" name="common_name" class="form-control" placeholder="e.g. Neon Tetra" ng-model="fish.common_name" required="required" autofocus>
+    </div>
+    <div ng-if="form.common_name.$touched && form.common_name.$error.required">
+        Common name is required!
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
@@ -22,8 +25,12 @@
       Species Name
     </label>
     <div class="col-md-5">
-      <textarea name="species_name" class="form-control" ng-model='fish.species_name' placeholder="e.g. Gadus morhua">
+      <textarea name="species_name" class="form-control" ng-model='fish.species_name' placeholder="e.g. Gadus morhua" required="required" species>
       </textarea>
+    </div>
+    <div ng-messages="form.species_name.$error" ng-if="form.species_name.$touched">
+        <div ng-message="species">Must be contain family and species in name.</div>
+        <div ng-message="required">Species name is required.</div>
     </div>
   </div>
   <div class="form-group">
