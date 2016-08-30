@@ -1,19 +1,13 @@
 
 
 controllers = angular.module('controllers')
-controllers.controller("CatchController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
-  ($scope,$routeParams,$location,$resource,flash)->
-    Catch = $resource('/trips/'+$routeParams.tripId+'/catches/:catchId', { catchId: "@id", format: 'json' },
-      {
-        'save': {method: 'PUT'},
-        'create': {method: 'POST'}
-      }
-    )
+controllers.controller("CatchController", [ '$scope', '$routeParams', '$location', '$resource', 'flash','CatchService',
+  ($scope,$routeParams,$location,$resource,flash,CatchService)->
 
 
     # catchModel named to circumvent reexisting JS method 'catch'
     if $routeParams.catchId
-      Catch.get({catchId: $routeParams.catchId},
+      CatchService.get({catchId: $routeParams.catchId},
         ( (catchModel)-> $scope.catchModel = catchModel),
         ( (httpResponse)-> 
           $scope.catchModel = null
@@ -30,7 +24,7 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
           ( ()-> $location.path("/trips/#{$scope.catchModel.trip.id}/catches/#{$scope.catchModel.id}") ),
           onError)
       else
-        Catch.create($scope.catchModel,
+        CatchService.create($scope.catchModel,
           ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}") ),
           onError
         )
