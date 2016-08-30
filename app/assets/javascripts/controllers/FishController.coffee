@@ -1,18 +1,12 @@
 
 
 controllers = angular.module('controllers')
-controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
-  ($scope,$routeParams,$location,$resource,flash)->
+controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash','FishService'
+  ($scope,$routeParams,$location,$resource,flash,FishService)->
     $scope.search = (keywords)->  $location.path("/fish").search('keywords',keywords)
-    Fish = $resource('/fish/:fishId', { fishId: "@id", format: 'json' },
-      {
-        'save': {method: 'PUT'},
-        'create': {method: 'POST'}
-      }
-    )
     
     if $routeParams.fishId
-      Fish.get({fishId: $routeParams.fishId},
+      FishService.get({fishId: $routeParams.fishId},
         ( (fish)-> $scope.fish = fish),
         ( (httpResponse)-> 
           $scope.fish = null
@@ -23,7 +17,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
       $scope.fish = {}
     
     if $routeParams.keywords
-        Fish.query(keywords: $routeParams.keywords, (results)-> $scope.fishes = results)
+        FishService.query(keywords: $routeParams.keywords, (results)-> $scope.fishes = results)
     else
         $scope.fishes = []
     
@@ -46,7 +40,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
           ( ()-> $location.path("/fish/#{$scope.fish.id}") ),
           onError)
       else
-        Fish.create($scope.fish,
+        FishService.create($scope.fish,
           ( (newFish)-> $location.path("/fish") ),
           onError
         )
