@@ -7,8 +7,10 @@ Specs:
     - Catches are nested into trips
 - [x] Must contain some sort of searching as well as filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
     - Able to search fish based on common name or species name
-- [ ] Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
-- [ ] Links should work correctly. Ex: Clicking on a product in a list, should take you to the show page for that product
+- [x] Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
+    - All models can be updated through edits
+- [x] Links should work correctly. Ex: Clicking on a product in a list, should take you to the show page for that product
+    - Links are funcitoning
 - [ ] Data should be validated in Angular before submission
 - [ ] Must talk to the Rails backend using $http and Services
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
