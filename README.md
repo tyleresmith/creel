@@ -1,10 +1,20 @@
 ## Creel
 
-A web app for saving and sharing your fishing trips!
+## Description
+A web app for saving and sharing your fishing trips! Record your trips and log your trophy catches
 
-## Usage
+## Install
 
 - Clone repo
-- bundle install
-- rake db:migrate
-- rails s
+
+- install Gemfile
+'''bundle install'''
+
+- Migrate database
+'''rake db:migrate'''
+
+- install Bowerfile
+'''rake bower:install'''
+
+- Run server
+'''rails s'''
