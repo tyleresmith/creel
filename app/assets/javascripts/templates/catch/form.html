@@ -8,31 +8,31 @@
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="fish_id" class="col-md-2 control-label col-md-offset-2"> Fish </label>
     <div class="col-md-5">
-      <input type="text" name="fish_id" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id" required="required" type="number">
+      <input type="number" min="0" name="fish_id" class="form-control" placeholder="make this a drop down" ng-model="catchModel.fish_id" required="required">
     </div>
     <div ng-messages="form.fish_id.$error" ng-if="form.fish_id.$touched">
-        <div ng-message="number">Must be a number.</div>
-        <div ng-message="type">Fish ID number is required.</div>
+        <div ng-message="required">Fish ID number is required.</div>
+        <div ng-message="type">Must be a number.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="weight" class="col-md-2 control-label col-md-offset-2"> Weight </label>
     <div class="col-md-5">
-      <input type="text" name="weight" class="form-control" placeholder="in grams" ng-model="catchModel.weight" required="required" type="number">
+      <input type="number" min='0' step='0.1' name="weight" class="form-control" placeholder="in grams" ng-model="catchModel.weight" required="required" type="number">
     </div>
     <div ng-messages="form.weight.$error" ng-if="form.weight.$touched">
-        <div ng-message="number">Must be a number.</div>
-        <div ng-message="type"> Weight is required.</div>
+        <div ng-message="type">Must be a number.</div>
+        <div ng-message="required"> Weight is required.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
     <label for="length" class="col-md-2 control-label col-md-offset-2"> Length </label>
     <div class="col-md-5">
-      <input type="length" name="state" class="form-control" placeholder="in centimeters" ng-model="catchModel.length" required="required" type="number">
+      <input type="number" min='0' step='0.1' name="length" class="form-control" placeholder="in centimeters" ng-model="catchModel.length" required="required" type="number">
     </div>
     <div ng-messages="form.length.$error" ng-if="form.length.$touched">
-        <div ng-message="number">Must be a number.</div>
-        <div ng-message="type"> Length is required.</div>
+        <div ng-message="type">Must be a number.</div>
+        <div ng-message="required"> Length is required.</div>
     </div>
   </div>
   <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
