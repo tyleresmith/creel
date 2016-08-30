@@ -8,13 +8,21 @@ A web app for saving and sharing your fishing trips! Record your trips and log y
 - Clone repo
 
 - install Gemfile
-'''bundle install'''
+''' javascript
+bundle install
+'''
 
 - Migrate database
-'''rake db:migrate'''
+''' javascript
+rake db:migrate
+'''
 
 - install Bowerfile
-'''rake bower:install'''
+''' javascript
+rake bower:install
+'''
 
 - Run server
-'''rails s'''
+''' javascript
+rails s
+'''
