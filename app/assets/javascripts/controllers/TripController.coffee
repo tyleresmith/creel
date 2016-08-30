@@ -1,17 +1,12 @@
 
 
 controllers = angular.module('controllers')
-controllers.controller("TripController", [ '$scope', '$routeParams', '$location', '$resource', 'flash',
-  ($scope,$routeParams,$location,$resource,flash)->
-    Trip = $resource('/trips/:tripId', { tripId: "@id", format: 'json' },
-      {
-        'save': {method: 'PUT'},
-        'create': {method: 'POST'}
-      }
-    )
-    $scope.trips = Trip.query()
+controllers.controller("TripController", [ '$scope', '$routeParams', '$location', '$resource', 'flash','TripService'
+  ($scope,$routeParams,$location,$resource,flash,TripService)->
+
+    $scope.trips = TripService.query()
     if $routeParams.tripId
-      Trip.get({tripId: $routeParams.tripId},
+      TripService.get({tripId: $routeParams.tripId},
         ( (trip)-> $scope.trip = trip),
         ( (httpResponse)-> 
           $scope.trip = null
@@ -43,7 +38,7 @@ controllers.controller("TripController", [ '$scope', '$routeParams', '$location'
           ( ()-> $location.path("/trips/#{$scope.trip.id}") ),
           onError)
       else
-        Trip.create($scope.trip,
+        TripService.create($scope.trip,
           ( (newTrip)-> $location.path("/trips") ),
           onError
         )
