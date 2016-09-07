@@ -28,7 +28,8 @@ controllers.controller("CatchController", [ '$scope', '$routeParams', '$location
           ( (newCatch)-> $location.path("/trips/#{$routeParams.tripId}") ),
           onError
         )
-        
+    
+    $scope.trips = (fishId) -> $location.path("/fish/#{fishId}/trips")
     $scope.back = (tripId) -> $location.path '/trips/' + $routeParams.tripId 
     $scope.edit = (catchId) -> $location.path("/trips/#{$routeParams.tripId}/catches/#{$routeParams.catchId}/edit")
     $scope.cancel = ->
