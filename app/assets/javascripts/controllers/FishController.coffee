@@ -21,11 +21,13 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     else
         $scope.fishes = []
     
+    $scope.viewTrip = (tripId) -> $location.path '/trips/' + tripId
     $scope.trips = (fishId) -> $location.path("/fish/#{fishId}/trips")
     $scope.home = -> $location.path('/')    
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     $scope.newFish = -> $location.path("/fish/new")
     $scope.back = -> $location.path("/fish")
+    $scope.backToFish = (fishId) -> $location.path("/fish/#{fishId}")
     $scope.edit = (fishId) -> $location.path("/fish/#{fishId}/edit")
     $scope.cancel = ->
       if $scope.fish.id
