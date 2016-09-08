@@ -1,8 +1,8 @@
 
 
 controllers = angular.module('controllers')
-controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash','FishService'
-  ($scope,$routeParams,$location,$resource,flash,FishService)->
+controllers.controller("FishController", [ '$scope', '$routeParams', '$location', '$resource', 'flash','FishService','FishFavoriteService'
+  ($scope,$routeParams,$location,$resource,flash,FishService,FishFavoriteService)->
     $scope.search = (keywords)->  $location.path("/fish").search('keywords',keywords)
     
     if $routeParams.fishId
@@ -21,6 +21,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     else
         $scope.fishes = []
     
+    $scope.favorite = (fishId) -> FishFavoriteService.favorite(fishId).then -> $scope.fish.favorite = !$scope.fish.favorite
     $scope.viewTrip = (tripId) -> $location.path '/trips/' + tripId
     $scope.trips = (fishId) -> $location.path("/fish/#{fishId}/trips")
     $scope.home = -> $location.path('/')    
