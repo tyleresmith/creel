@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817231436) do
+ActiveRecord::Schema.define(version: 20160908210912) do
 
   create_table "catches", force: :cascade do |t|
     t.integer  "trip_id"
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20160817231436) do
   create_table "fish", force: :cascade do |t|
     t.string   "common_name"
     t.string   "species_name"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "favorite",            default: false
   end
 
   create_table "trips", force: :cascade do |t|
