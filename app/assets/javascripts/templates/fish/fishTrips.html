@@ -1,6 +1,13 @@
-<h1>Locaitons {{fish.common_name}} has been caught in.</h1>
-
-<section class="row" ng-if="fish.trips">
+<!--if no trips are associated -->
+<section class="row" ng-if="fish.trips.length === 0">
+  <article class="panel panel-info">
+    <h1 class="text-center col-md-6 col-md-offset-3">{{fish.common_name}} has yet to be caught!</h1>
+    <h2 class="text-center col-md-6 col-md-offset-3">Caught one? Record it in a <a href ng-click="newTrip()">trip</a>.</h2>
+  </article>
+</section>
+<!--if fish has trips-->
+<section class="row" ng-if="fish.trips.length > 0">
+  <h1 class="text-center col-md-6 col-md-offset-3">Locations {{fish.common_name}} have been caught in:</h1>        
   <h1 class="text-center h2"></h1>
     <ul class="list-unstyled">
     <li ng-repeat="trip in fish.trips">
@@ -9,13 +16,10 @@
       </section>
     </li>
   </ul>
-  <div class="form-group col-md-6 col-md-offset-3 text-center">
-      <button ng-click="home()" class="btn btn-info btn-lg">Home</button>
-  </div>
 </section>
-
 <div class='col-md-3'>
-    <button ng-click="back(catchModel.trip.id)" class="btn btn-default">
+    <button ng-click="backToFish(fish.id)" class="btn btn-default">
       &larr; Back
     </button>
+    <button ng-click="home()" class="btn btn-info">Home</button>
 </div>
