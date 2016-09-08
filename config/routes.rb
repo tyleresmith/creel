@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   # resources :catch, only: [:create, :delete, :show]
   resources :trips
-  resources :fish, only: [:index, :show, :update, :destroy, :create, :favorite]
+  resources :fish, only: [:index, :show, :update, :destroy, :create]
+  get '/fish/:id/favorite' => 'fish#favorite'
 end
