@@ -1,4 +1,18 @@
-<h1>Test</h1>
+<h1>Locaitons {{fish.common_name}} has been caught in.</h1>
+
+<section class="row" ng-if="fish.trips">
+  <h1 class="text-center h2"></h1>
+    <ul class="list-unstyled">
+    <li ng-repeat="trip in fish.trips">
+      <section class="well col-md-6 col-md-offset-3">
+        <h1 class="h3 col-md-6 text-right" style="margin-top: 0"><a href ng-click="viewTrip(trip.id)">{{trip.location}} ({{trip.city}}, {{trip.state}})</a></h1>
+      </section>
+    </li>
+  </ul>
+  <div class="form-group col-md-6 col-md-offset-3 text-center">
+      <button ng-click="home()" class="btn btn-info btn-lg">Home</button>
+  </div>
+</section>
 
 <div class='col-md-3'>
     <button ng-click="back(catchModel.trip.id)" class="btn btn-default">
