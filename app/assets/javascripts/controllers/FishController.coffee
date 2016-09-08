@@ -26,6 +26,7 @@ controllers.controller("FishController", [ '$scope', '$routeParams', '$location'
     $scope.home = -> $location.path('/')    
     $scope.view = (fishId)-> $location.path("/fish/#{fishId}")
     $scope.newFish = -> $location.path("/fish/new")
+    $scope.newTrip = -> $location.path("/trips/new")
     $scope.back = -> $location.path("/fish")
     $scope.backToFish = (fishId) -> $location.path("/fish/#{fishId}")
     $scope.edit = (fishId) -> $location.path("/fish/#{fishId}/edit")
