@@ -40,7 +40,12 @@ class FishController < ApplicationController
     end
     
     def favorite
-        @fish.favorite = true
+        if @fish.favorite
+            @fish.favorite = false
+        else
+            @fish.favorite = true
+        end
+        @fish.save
         head :no_content
     end
     
