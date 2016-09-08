@@ -40,7 +40,7 @@ class TripsController < ApplicationController
     end
     
     def trip_params
-        params.require(:trip).permit(:location, :city, :state, :water_type, :body_type)
+        params.require(:trip).permit(:location, :date, :city, :state, :water_type, :body_type)
     end
 
 end
