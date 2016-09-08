@@ -3,7 +3,7 @@ class FishController < ApplicationController
     #allows multiple POSTs to app
     skip_before_filter :verify_authenticity_token 
     # prepend_view_path 'app/assets/javascipt/templates'
-    before_action :set_fish!, only: [:show, :update, :destroy]
+    before_action :set_fish!, only: [:show, :update, :destroy, :favorite]
     def index
         @fish = if params[:keywords]
                      Fish.where('common_name LIKE ? OR species_name LIKE ?',"%#{params[:keywords]}%","%#{params[:keywords]}%")
@@ -39,6 +39,11 @@ class FishController < ApplicationController
         head :no_content
     end
     
+    def favorite
+        @fish.favorite = true
+        head :no_content
+    end
+    
     private
     
     def set_fish!
@@ -46,6 +51,6 @@ class FishController < ApplicationController
     end
     
     def fish_params
-        params.require(:fish).permit(:common_name,:species_name)
+        params.require(:fish).permit(:common_name,:species_name,:favorite)
     end
 end
