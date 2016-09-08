@@ -10,7 +10,8 @@
       {{fish.species_name}}
     </p>
     <button ng-click="trips(fish.id)" class="bnt-info btn">View Trips</button>
-    <button ng-click="favorite(fish.id)" class="bnt-info btn">Favorite</button>
+    <button ng-if="fish.favorite" ng-click="favorite(fish.id)" class="btn btn-success"><span class="glyphicon glyphicon-heart"></span>Favorite</button>
+    <button ng-if="!fish.favorite" ng-click="favorite(fish.id)" class="bnt-default btn"><span class="glyphicon glyphicon-heart"></span>Favorite</button>
   </article>
 </section>
 <section class="row">
