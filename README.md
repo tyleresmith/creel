@@ -27,7 +27,7 @@ rake bower:install
 rails s
 ```
 ## Contributing
-1. Fork it (https://github.com/tyleresmith/creel/edit/master/README.md)
+1. Fork it (https://github.com/tyleresmith/creel)
 2. Create your feature branch (<tt>git checkout -b my-new-feature</tt>)
 3. Commit your changes (<tt>git commit -am 'Add some feature'</tt>)
 4. Push to the branch (<tt>git push origin my-new-feature</tt>)
