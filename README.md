@@ -26,3 +26,12 @@ rake bower:install
 ``` javascript
 rails s
 ```
+## Contributing
+1. Fork it (https://github.com/tyleresmith/creel)
+2. Create your feature branch (<tt>git checkout -b my-new-feature</tt>)
+3. Commit your changes (<tt>git commit -am 'Add some feature'</tt>)
+4. Push to the branch (<tt>git push origin my-new-feature</tt>)
+5. Create a new Pull Request
+
+## License
+This project was created as part of the curriculum of Learn.co which is publicly and freely available under {Learn's Educational Content License}[https://learn.co/content-license].
